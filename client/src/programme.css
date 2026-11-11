@@ -1,0 +1,893 @@
+/* =====================================================
+   PROGRAMME PAGES (CGPA Mentorship, School Partnership)
+   Builds on index.css tokens and shared components.
+   ===================================================== */
+
+/* ---------- Hero ---------- */
+
+.cgpa-hero .hero-inner {
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+.cgpa-hero-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.cgpa-pillars {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.cgpa-pillars li + li::before {
+  content: '·';
+  margin: 0 12px;
+  color: var(--gold);
+}
+
+/* ---------- Free guide ---------- */
+
+.cgpa-guide {
+  padding-bottom: 0;
+}
+
+.guide-panel {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  align-items: center;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 40px;
+}
+
+.guide-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.guide-body h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  margin-bottom: 12px;
+}
+
+.guide-body > p:not(.eyebrow) {
+  max-width: 560px;
+  margin-bottom: 18px;
+}
+
+.guide-topics {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-bottom: 28px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.guide-topics li {
+  position: relative;
+  padding-left: 16px;
+}
+
+.guide-topics li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+}
+
+.guide-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.guide-note {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* =====================================================
+   FORMS (shared by programme pages)
+   ===================================================== */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field.full-width {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.field label .req {
+  color: var(--error);
+  margin-left: 2px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--ink);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #9A9EAB;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(14, 45, 99, 0.14);
+}
+
+.field.invalid input,
+.field.invalid select,
+.field.invalid textarea {
+  border-color: var(--error);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.error-msg {
+  font-size: 0.8125rem;
+  color: var(--error);
+}
+
+.form-privacy {
+  margin-top: 20px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.form-actions {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.form-actions .btn {
+  padding: 12px 28px;
+  font-size: 1rem;
+}
+
+.form-status.fail {
+  font-size: 0.9375rem;
+  color: var(--error);
+}
+
+/* =====================================================
+   SUCCESS PANEL
+   ===================================================== */
+
+.success-panel {
+  padding: 8px 0;
+}
+
+.success-panel h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  padding-left: 16px;
+  border-left: 3px solid var(--navy);
+}
+
+.success-panel p {
+  margin-bottom: 20px;
+}
+
+.success-ref {
+  display: inline-block;
+  font-size: 0.9375rem;
+  color: var(--muted);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 8px 14px;
+}
+
+.success-ref strong {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.03em;
+}
+
+
+/* ---------- Free guide form ---------- */
+
+.guide-form {
+  margin-top: 8px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.field label .optional {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 0.9375rem;
+  color: var(--body);
+  cursor: pointer;
+}
+
+.checkbox-field input {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--navy);
+}
+
+/* Visually hidden honeypot field. */
+.hp-field {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.guide-ready {
+  padding: 18px 20px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--navy);
+  border-radius: var(--radius);
+}
+
+.guide-ready-title {
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.guide-ready a {
+  font-weight: 600;
+}
+
+/* ---------- Audience ---------- */
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.audience-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+}
+
+.audience-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.audience-body {
+  padding: 28px 32px 32px;
+}
+
+.audience-body h3 {
+  font-size: 1.375rem;
+  margin-bottom: 10px;
+}
+
+/* ---------- Programme lead ---------- */
+
+.cgpa-lead {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+
+.lead-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.lead-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: top;
+  border-radius: var(--radius);
+}
+
+.lead-body h2 {
+  font-size: clamp(1.875rem, 3.4vw, 2.5rem);
+  margin-bottom: 6px;
+}
+
+.lead-role {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+
+.lead-body > p:not(.eyebrow):not(.lead-role) {
+  font-size: 1.0625rem;
+  max-width: 600px;
+}
+
+.lead-org {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  max-width: 600px;
+}
+
+.lead-org h3 {
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.lead-org p {
+  font-size: 0.9375rem;
+}
+
+/* ---------- Upcoming programme (mentees and mentors) ---------- */
+
+.join-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.join-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 36px;
+}
+
+.join-card-featured {
+  border: 2px solid var(--navy);
+  padding: 35px;
+}
+
+/* The shorter mentee card stays in view beside the longer mentor card. */
+@media (min-width: 1041px) {
+  .join-card-featured {
+    position: sticky;
+    top: 92px;
+  }
+}
+
+.join-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.join-card-head .path-tag {
+  margin-bottom: 0;
+}
+
+.join-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--navy-tint);
+  border-radius: 4px;
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+
+.join-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1F7A4D;
+}
+
+.join-card h3 {
+  font-size: 1.75rem;
+  margin-bottom: 8px;
+}
+
+.join-lede {
+  font-size: 1.0625rem;
+  margin-bottom: 8px;
+}
+
+.join-subhead {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 24px 0 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.join-benefits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 28px;
+}
+
+.join-benefits dt {
+  position: relative;
+  padding-left: 26px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Check mark, matching .tier-features */
+.join-benefits dt::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0.3em;
+  width: 6px;
+  height: 11px;
+  border: solid var(--navy);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.join-benefits dd {
+  padding-left: 26px;
+  font-size: 0.9375rem;
+  color: var(--body);
+}
+
+.join-card .tier-features {
+  margin-bottom: 0;
+}
+
+.join-requirements {
+  list-style: none;
+  counter-reset: req;
+  display: grid;
+  gap: 12px;
+}
+
+.join-requirements li {
+  counter-increment: req;
+  position: relative;
+  padding-left: 38px;
+  font-size: 0.9375rem;
+}
+
+.join-requirements li::before {
+  content: counter(req);
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.join-cta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.join-cta-note {
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.join-contact {
+  margin-top: 28px;
+  font-size: 0.9375rem;
+}
+
+.join-contact a {
+  font-weight: 600;
+}
+
+/* Small label badge (also used by the school options picker). */
+.tier-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--navy-tint);
+  border-radius: 4px;
+  padding: 3px 8px;
+}
+
+/* ---------- Onboarding ---------- */
+
+.cgpa-onboarding {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+
+.onboarding-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.onboarding-steps li {
+  display: flex;
+  gap: 16px;
+}
+
+.onboarding-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--navy);
+  border-radius: 50%;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.onboarding-steps h3 {
+  font-size: 1.1875rem;
+  margin: 4px 0 6px;
+}
+
+.onboarding-steps p {
+  font-size: 0.9375rem;
+}
+
+.onboarding-help {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 0.9375rem;
+}
+
+.onboarding-help a {
+  font-weight: 600;
+}
+
+/* ---------- Features ---------- */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.feature {
+  border-top: 2px solid var(--navy);
+  padding-top: 20px;
+}
+
+.feature dt {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.feature dd {
+  font-size: 0.9375rem;
+}
+
+/* ---------- Testimonials ---------- */
+
+.cgpa-testimonials {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.testimonial-video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: var(--navy-dark);
+  border-radius: var(--radius);
+}
+
+.testimonial-video figcaption,
+.testimonial-quote figcaption {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.testimonial-video figcaption strong,
+.testimonial-quote figcaption strong {
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.testimonial-quote blockquote {
+  border-left: 3px solid var(--gold);
+  padding-left: 28px;
+}
+
+.testimonial-lead {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(1.375rem, 2.4vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.testimonial-quote blockquote p:not(.testimonial-lead) {
+  font-size: 1.0625rem;
+}
+
+.testimonial-quote figcaption {
+  padding-left: 31px;
+  margin-top: 20px;
+}
+
+/* ---------- FAQ ---------- */
+
+.faq-tinted {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.faq-grid .section-header {
+  margin-bottom: 0;
+}
+
+.faq-list {
+  border-top: 1px solid var(--line);
+}
+
+.faq-list details {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-list summary {
+  position: relative;
+  padding: 20px 40px 20px 0;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Plus / minus indicator */
+.faq-list summary::before,
+.faq-list summary::after {
+  content: '';
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 12px;
+  height: 2px;
+  background: var(--navy);
+}
+
+.faq-list summary::after {
+  transform: rotate(90deg);
+  transition: transform 0.15s;
+}
+
+.faq-list details[open] summary::after {
+  transform: rotate(0deg);
+}
+
+.faq-list details p {
+  padding: 0 40px 20px 0;
+  color: var(--body);
+}
+
+/* ---------- Closing CTA ---------- */
+
+.cgpa-closing {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  padding: 72px 24px;
+}
+
+.closing-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.cgpa-closing h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: 10px;
+}
+
+.cgpa-closing p {
+  max-width: 520px;
+}
+
+.cgpa-closing .hero-ctas {
+  flex-shrink: 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1040px) {
+  .join-grid {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 960px) {
+  .cgpa-hero .hero-inner,
+  .audience-grid,
+  .lead-grid,
+  .faq-grid,
+  .testimonial-grid,
+  .onboarding-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .lead-grid {
+    gap: 40px;
+  }
+
+  .lead-photo {
+    max-width: 320px;
+  }
+
+  .testimonial-video {
+    max-width: 300px;
+  }
+
+  .faq-grid {
+    gap: 32px;
+  }
+
+  .closing-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .guide-panel {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 20px;
+  }
+
+  .guide-cover {
+    max-width: 160px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .audience-body,
+  .join-card {
+    padding: 24px 20px;
+  }
+
+  .join-card-featured {
+    padding: 23px 19px;
+  }
+
+  .join-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cgpa-closing {
+    padding: 56px 16px;
+  }
+}
