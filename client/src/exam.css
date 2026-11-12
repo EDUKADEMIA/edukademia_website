@@ -1,0 +1,599 @@
+/* =====================================================
+   EXAM PREPARATION PAGE
+   Builds on index.css and programme.css.
+   ===================================================== */
+
+/* ---------- Hero (portrait photo) ---------- */
+
+.exam-hero-visual {
+  max-width: 420px;
+  margin-left: auto;
+}
+
+.exam-hero-visual img {
+  aspect-ratio: 4 / 5;
+  object-position: center 18%;
+}
+
+/* Compact exam links, so the card sits below the student's face. */
+.exam-quick {
+  left: -56px;
+  width: min(380px, 96%);
+  padding: 16px 18px 18px;
+}
+
+/* ---------- Subject planner ---------- */
+
+.planner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.planner-intro {
+  position: sticky;
+  top: 100px;
+}
+
+.planner-intro h2 {
+  font-size: clamp(1.875rem, 3.4vw, 2.5rem);
+  margin-bottom: 14px;
+}
+
+.planner-intro > p:not(.eyebrow) {
+  font-size: 1.0625rem;
+  margin-bottom: 24px;
+}
+
+.subject-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+
+.subject-list li {
+  position: relative;
+  padding-left: 22px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.subject-list li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.3em;
+  width: 6px;
+  height: 11px;
+  border: solid var(--navy);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.planner-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.planner-step {
+  border: none;
+  padding: 0 0 24px;
+  margin: 0 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.planner-step legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.planner-num {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.planner-hint {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: -6px 0 10px;
+}
+
+/* Toggle chips built on real checkboxes, so they work with keyboards and screen readers. */
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  position: relative;
+  cursor: pointer;
+}
+
+.chip input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.chip span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--white);
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.chip:hover span {
+  border-color: var(--navy);
+}
+
+.chip input:checked + span {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
+.chip input:checked + span::before {
+  content: '';
+  width: 4px;
+  height: 8px;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  transform: translateY(-1px) rotate(45deg);
+}
+
+.chip input:focus-visible + span {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.planner-other {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.planner-other label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.planner-other .optional {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.planner-other input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--ink);
+}
+
+.planner-other input:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(14, 45, 99, 0.14);
+}
+
+.segmented {
+  display: inline-flex;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: 3px;
+}
+
+.segmented button {
+  border: none;
+  background: none;
+  border-radius: 4px;
+  padding: 7px 14px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.segmented button.is-active {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.planner-preview {
+  background: var(--bg);
+  border-left: 3px solid var(--navy);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+
+.planner-preview-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.planner-message {
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+/* ---------- Next step (university) ---------- */
+
+.exam-next {
+  border-top: 1px solid var(--line);
+}
+
+.next-panel {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.next-panel h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: 14px;
+}
+
+.next-panel p:not(.eyebrow) {
+  font-size: 1.0625rem;
+}
+
+.next-links {
+  display: grid;
+  gap: 12px;
+}
+
+.next-link {
+  position: relative;
+  display: grid;
+  padding: 18px 44px 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.next-link:hover {
+  border-color: var(--navy);
+  background: var(--navy-tint);
+}
+
+.next-link-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gold-text);
+}
+
+.next-link-title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.next-link .quick-link-arrow {
+  right: 20px;
+}
+
+.next-link:hover .quick-link-arrow {
+  right: 16px;
+}
+
+/* ---------- Contact ---------- */
+
+.cgpa-closing p a {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.exam-contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.exam-contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---------- Hero exam tags ---------- */
+
+.exam-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.exam-tags + .exam-tags {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.exam-tags li {
+  padding: 3px 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: default;
+}
+
+/* ---------- Registration ---------- */
+
+.exam-group {
+  margin-top: 20px;
+}
+
+.exam-group h3 {
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.exam-group-note {
+  margin-top: 20px;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+.chip-section + .chip-section {
+  margin-top: 16px;
+}
+
+.chip-section-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--body);
+  margin-bottom: 8px;
+}
+
+.chip-section-label .optional,
+.planner-step .optional {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.chip span small {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.planner-step .error-msg {
+  display: block;
+  margin-top: 8px;
+}
+
+.reg-form .form-grid {
+  margin-top: 4px;
+}
+
+.reg-format {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.reg-format-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.reg-format-value {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9375rem;
+  color: var(--body);
+}
+
+.reg-format-badge {
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.reg-done h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.reg-done > p {
+  margin-bottom: 20px;
+}
+
+pre.planner-message {
+  font-family: inherit;
+  font-size: 0.9375rem;
+  white-space: pre-wrap;
+  margin-bottom: 0;
+}
+
+.reg-done-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 16px;
+}
+
+.reg-fallback {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.reg-fallback a {
+  font-weight: 600;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.reg-done-step {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1F7A4D;
+  margin-bottom: 6px;
+}
+
+.reg-error {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--error);
+  background: #FDF3F2;
+  border-radius: var(--radius);
+  font-size: 0.9375rem;
+}
+
+.reg-error p + p {
+  margin-top: 6px;
+}
+
+.reg-error a {
+  font-weight: 600;
+}
+
+.add-field {
+  display: flex;
+  gap: 8px;
+}
+
+.add-field input {
+  flex: 1;
+  min-width: 0;
+}
+
+.add-field .btn {
+  flex-shrink: 0;
+  padding: 9px 18px;
+}
+
+.add-hint {
+  margin: 6px 0 0;
+}
+
+.added-subjects {
+  list-style: none;
+  margin-top: 12px;
+}
+
+.added-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 6px 5px 14px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.added-chip button {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.added-chip button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.added-chip button:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 1px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 960px) {
+  .planner-grid,
+  .next-panel {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .planner-intro {
+    position: static;
+  }
+
+  .exam-hero-visual {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .planner-card {
+    padding: 24px 20px;
+  }
+}

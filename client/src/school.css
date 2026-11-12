@@ -1,0 +1,267 @@
+/* =====================================================
+   SCHOOL PARTNERSHIP PAGE
+   Builds on index.css and programme.css.
+   ===================================================== */
+
+/* ---------- Student band (photo + list) ---------- */
+
+.school-included {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.student-band {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.student-band-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.student-band-body h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: 14px;
+}
+
+.student-band-body > p:not(.eyebrow) {
+  margin-bottom: 24px;
+}
+
+.included-link {
+  display: inline-block;
+  font-weight: 600;
+}
+
+/* ---------- Options (interactive) ---------- */
+
+.option-tablist {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.option-tab {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 22px 24px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.option-tab:hover {
+  border-color: var(--line-strong);
+}
+
+.option-tab[aria-selected='true'] {
+  border-color: var(--navy);
+  box-shadow: inset 0 0 0 1px var(--navy);
+  background: var(--navy-tint);
+}
+
+.option-tab-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.option-tab-name {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.option-tab .tier-badge {
+  background: var(--navy);
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.option-tab-body {
+  font-size: 0.9375rem;
+  color: var(--body);
+}
+
+.option-panel {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px;
+  animation: panel-in 0.2s ease;
+}
+
+.option-panel h3 {
+  font-size: 1.25rem;
+  margin-bottom: 18px;
+}
+
+.option-panel .tier-features {
+  margin-bottom: 0;
+}
+
+.option-panel-side {
+  display: flex;
+  flex-direction: column;
+  padding-left: 48px;
+  border-left: 1px solid var(--line);
+}
+
+.option-standard {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin-bottom: 28px;
+  font-size: 0.9375rem;
+}
+
+.option-standard li {
+  position: relative;
+  padding-left: 16px;
+}
+
+.option-standard li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+}
+
+.option-panel-side .btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* ---------- Process ---------- */
+
+.process-steps {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+/* ---------- Enquiry ---------- */
+
+.enquiry-section {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+}
+
+.enquiry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.enquiry-aside {
+  position: sticky;
+  top: 100px;
+}
+
+.enquiry-aside h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: 16px;
+}
+
+.enquiry-aside > p:not(.eyebrow) {
+  margin-bottom: 28px;
+}
+
+.enquiry-contact {
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.enquiry-contact dt {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.enquiry-contact dd a {
+  font-weight: 600;
+}
+
+/* ---------- Enquiry form card ---------- */
+
+.form-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 40px;
+}
+
+.form-card h3 {
+  font-size: 1.375rem;
+  margin-bottom: 24px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1040px) {
+  .option-tablist {
+    grid-template-columns: 1fr;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 960px) {
+  .student-band,
+  .option-panel,
+  .enquiry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .student-band {
+    gap: 32px;
+  }
+
+  .option-panel-side {
+    padding-left: 0;
+    padding-top: 28px;
+    border-left: none;
+    border-top: 1px solid var(--line);
+  }
+
+  .enquiry-grid {
+    gap: 40px;
+  }
+
+  .enquiry-aside {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .option-panel,
+  .form-card {
+    padding: 24px 20px;
+  }
+}
